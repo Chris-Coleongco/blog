@@ -1,0 +1,22 @@
+<h1>JAOIEGJWEJG</h1>
+
+<script>
+
+    async function getData() {
+
+        try {
+            const response = await fetch("http://localhost:8080/repo/blog")
+            if (!response.ok) {
+                throw new Error(`Response status: ${response.status}`);
+            }
+            return response.text()
+        }
+        catch (error) {
+            console.error(error.message)
+        }
+    }
+
+    getData().then((response_text) => {console.log(response_text)})
+
+</script>
+    

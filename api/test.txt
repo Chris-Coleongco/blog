@@ -22,7 +22,7 @@ okay so you need:
 
 specifics:
 
-BACKEND = https://dashboard.render.com/register
+BACKEND = back4app
 
 FRONTEND = just vite on github pages
 

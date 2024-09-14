@@ -47,7 +47,10 @@ func Get_Github_README(repoName string) []byte {
 
 }
 
-func parse_github_api_json(body []byte) {
+func parse_github_api_json(body []byte) []string {
+
+	var github_links []string
+
 	var data []interface{}
 
 	// Unmarshal JSON into the slice
@@ -66,6 +69,7 @@ func parse_github_api_json(body []byte) {
 			htmlURL, err := itemMap["html_url"].(string)
 			if err {
 				fmt.Println("GitHub Page URL:", htmlURL)
+				github_links = append(github_links, htmlURL)
 			} else {
 				fmt.Println("html_url not found or not a string")
 			}
@@ -73,6 +77,8 @@ func parse_github_api_json(body []byte) {
 			fmt.Printf("Item at key %d is not a map\n", key)
 		}
 	}
+
+	return github_links
 
 }
 
@@ -98,7 +104,11 @@ func get_all_github_repos() []byte {
 
 	// ge the svn_link in the body
 
-	parse_github_api_json(body)
+	var github_links []string = parse_github_api_json(body)
+
+	var github_repo names
+
+	var github readmes (preview)
 
 	return body
 
